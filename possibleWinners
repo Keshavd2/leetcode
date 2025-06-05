@@ -1,0 +1,14 @@
+def possibleWinners (intialRewards):
+    largestElement = max(intialRewards)
+    intialRewards.pop(intialRewards.index(largestElement))
+    highestPoints =  len(intialRewards)
+    countOfWinners = 0
+
+    for element in intialRewards:
+        if element + highestPoints >= largestElement + highestPoints - 1:
+            countOfWinners += 1
+
+    return countOfWinners + 1
+
+answer = possibleWinners([5,6,7,8,9,8])
+print(answer)

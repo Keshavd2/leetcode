@@ -1,4 +1,8 @@
-a = [1,2,3]
-b = [4,5,6]
-a.reverse()
-print(a + b)
+board = [1,2]
+cc = set()
+[cc.add(b) for b in board]
+cc = board[:]
+cc[0] = 2
+board.pop()
+print(board[:])
+print(cc[:])
