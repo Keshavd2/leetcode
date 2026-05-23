@@ -1,23 +1,20 @@
-def length_of_longest_substring(s):
-    i, j = 0, 0
+def longest_substring(s):
+    left, right = 0, 0
     max_length = 0
     substring = set()
 
-    while(j < len(s)):
-        if s[j] in substring:
-            substring.remove(s[i])
-            i += 1
+    while(right < len(s)):
+        if s[right] in substring:
+            substring.remove(s[left])
+            left += 1
         else:
-            substring.add(s[j])
-            j += 1
-        
-        if max_length < (j - i):
-            max_length = j - i
+            substring.add(s[right])
+            right += 1
 
+        if right - left > max_length:
+            max_length = right - left
+    
     return max_length
 
-# Test
-print(length_of_longest_substring("abcabcbb"))  # Expected: 3
-print(length_of_longest_substring("bbbbb"))     # Expected: 1
-print(length_of_longest_substring("pwwkew"))    # Expected: 3
-print(length_of_longest_substring(""))          # Expected: 0
+a = "abcdef"
+print(longest_substring(a))
