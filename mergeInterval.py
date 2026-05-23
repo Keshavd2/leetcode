@@ -7,12 +7,7 @@ def merge_interval(intervals):
     
     for i in range(1, len(intervals)):
         if intervals[i][0] >= result[-1][0] and intervals[i][0] <= result[-1][1]:
-            if result[-1][1] > intervals[i][1]:
-                new_interval = [result[-1][0], result[-1][1]]
-            else:
-                new_interval = [result[-1][0], intervals[i][1]]
-            result.pop()
-            result.append(new_interval)
+            result[-1] = [result[-1][0], max(result[-1][1], intervals[i][1])] 
         else:
             result.append(intervals[i])
     
@@ -21,6 +16,6 @@ def merge_interval(intervals):
 
 
 
-a = [[1,4],[0,0]]
+a = [[1,3],[2,6],[8,10],[15,18]]
 print(merge_interval(a))
 
